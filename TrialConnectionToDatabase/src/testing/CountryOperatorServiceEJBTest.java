@@ -1,8 +1,10 @@
-package servicesEJB;
+package testing;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import servicesEJB.CountryOperatorServiceEJB;
 
 public class CountryOperatorServiceEJBTest {
 
