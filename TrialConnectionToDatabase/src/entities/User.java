@@ -26,7 +26,7 @@ public class User implements Serializable {
 
 	//bi-directional many-to-one association to ListItem
 	@OneToMany(mappedBy="user")
-	private List<ListItem> listitems;
+	private List<ListItem> listItems;
 
 	public User() {
 	}
@@ -63,23 +63,23 @@ public class User implements Serializable {
 		this.userType = userType;
 	}
 
-	public List<ListItem> getListitems() {
-		return this.listitems;
+	public List<ListItem> getListItems() {
+		return this.listItems;
 	}
 
-	public void setListitems(List<ListItem> listitems) {
-		this.listitems = listitems;
+	public void setListItems(List<ListItem> listItems) {
+		this.listItems = listItems;
 	}
 
 	public ListItem addListitem(ListItem listitem) {
-		getListitems().add(listitem);
+		getListItems().add(listitem);
 		listitem.setUser(this);
 
 		return listitem;
 	}
 
 	public ListItem removeListitem(ListItem listitem) {
-		getListitems().remove(listitem);
+		getListItems().remove(listitem);
 		listitem.setUser(null);
 
 		return listitem;

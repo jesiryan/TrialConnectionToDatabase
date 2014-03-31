@@ -37,7 +37,7 @@ public class CallFailure implements Serializable {
 
 	//bi-directional many-to-one association to FailureClass
 	@ManyToOne
-	private FailureClass failureclass;
+	private FailureClass failureClass;
 
 	//bi-directional many-to-one association to CountryOperator
 	@ManyToOne
@@ -45,7 +45,7 @@ public class CallFailure implements Serializable {
 		@JoinColumn(name="countryOperator_mCC", referencedColumnName="mCC"),
 		@JoinColumn(name="countryOperator_mNC", referencedColumnName="mNC")
 		})
-	private CountryOperator countryoperator;
+	private CountryOperator countryOperator;
 
 	//bi-directional many-to-one association to Equipment
 	@ManyToOne
@@ -134,20 +134,20 @@ public class CallFailure implements Serializable {
 		this.nEVersion = nEVersion;
 	}
 
-	public FailureClass getFailureclass() {
-		return this.failureclass;
+	public FailureClass getFailureClass() {
+		return this.failureClass;
 	}
 
-	public void setFailureclass(FailureClass failureclass) {
-		this.failureclass = failureclass;
+	public void setFailureClass(FailureClass failureClass) {
+		this.failureClass = failureClass;
 	}
 
-	public CountryOperator getCountryoperator() {
-		return this.countryoperator;
+	public CountryOperator getCountryOperator() {
+		return this.countryOperator;
 	}
 
-	public void setCountryoperator(CountryOperator countryoperator) {
-		this.countryoperator = countryoperator;
+	public void setCountryOperator(CountryOperator countryOperator) {
+		this.countryOperator = countryOperator;
 	}
 
 	public Equipment getEquipment() {

@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * The persistent class for the failureclass database table.
+ * The persistent class for the failureClass database table.
  * 
  */
 @Entity
@@ -21,8 +21,8 @@ public class FailureClass implements Serializable {
 	private String description;
 
 	//bi-directional many-to-one association to CallFailure
-	@OneToMany(mappedBy="failureclass")
-	private List<CallFailure> callfailures;
+	@OneToMany(mappedBy="failureClass")
+	private List<CallFailure> callFailures;
 
 	public FailureClass() {
 	}
@@ -43,26 +43,26 @@ public class FailureClass implements Serializable {
 		this.description = description;
 	}
 
-	public List<CallFailure> getCallfailures() {
-		return this.callfailures;
+	public List<CallFailure> getCallFailures() {
+		return this.callFailures;
 	}
 
-	public void setCallfailures(List<CallFailure> callfailures) {
-		this.callfailures = callfailures;
+	public void setCallFailures(List<CallFailure> callFailures) {
+		this.callFailures = callFailures;
 	}
 
-	public CallFailure addCallfailure(CallFailure callfailure) {
-		getCallfailures().add(callfailure);
-		callfailure.setFailureclass(this);
+	public CallFailure addCallFailure(CallFailure callFailure) {
+		getCallFailures().add(callFailure);
+		callFailure.setFailureClass(this);
 
-		return callfailure;
+		return callFailure;
 	}
 
-	public CallFailure removeCallfailure(CallFailure callfailure) {
-		getCallfailures().remove(callfailure);
-		callfailure.setFailureclass(null);
+	public CallFailure removeCallFailure(CallFailure callFailure) {
+		getCallFailures().remove(callFailure);
+		callFailure.setFailureClass(null);
 
-		return callfailure;
+		return callFailure;
 	}
 
 }

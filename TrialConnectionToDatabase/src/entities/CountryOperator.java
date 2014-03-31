@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * The persistent class for the countryoperator database table.
+ * The persistent class for the countryOperator database table.
  * 
  */
 @Entity
@@ -22,7 +22,7 @@ public class CountryOperator implements Serializable {
 	private String operator;
 
 	//bi-directional many-to-one association to CallFailure
-	@OneToMany(mappedBy="countryoperator")
+	@OneToMany(mappedBy="countryOperator")
 	private List<CallFailure> callfailures;
 
 	public CountryOperator() {
@@ -62,14 +62,14 @@ public class CountryOperator implements Serializable {
 
 	public CallFailure addCallfailure(CallFailure callfailure) {
 		getCallfailures().add(callfailure);
-		callfailure.setCountryoperator(this);
+		callfailure.setCountryOperator(this);
 
 		return callfailure;
 	}
 
 	public CallFailure removeCallfailure(CallFailure callfailure) {
 		getCallfailures().remove(callfailure);
-		callfailure.setCountryoperator(null);
+		callfailure.setCountryOperator(null);
 
 		return callfailure;
 	}

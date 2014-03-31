@@ -36,7 +36,7 @@ public class Equipment implements Serializable {
 
 	//bi-directional many-to-one association to CallFailure
 	@OneToMany(mappedBy="equipment")
-	private List<CallFailure> callfailures;
+	private List<CallFailure> callFailures;
 
 	public Equipment() {
 	}
@@ -113,26 +113,26 @@ public class Equipment implements Serializable {
 		this.vendorName = vendorName;
 	}
 
-	public List<CallFailure> getCallfailures() {
-		return this.callfailures;
+	public List<CallFailure> getCallFailures() {
+		return this.callFailures;
 	}
 
-	public void setCallfailures(List<CallFailure> callfailures) {
-		this.callfailures = callfailures;
+	public void setCallFailures(List<CallFailure> callFailures) {
+		this.callFailures = callFailures;
 	}
 
-	public CallFailure addCallfailure(CallFailure callfailure) {
-		getCallfailures().add(callfailure);
-		callfailure.setEquipment(this);
+	public CallFailure addCallFailure(CallFailure callFailure) {
+		getCallFailures().add(callFailure);
+		callFailure.setEquipment(this);
 
-		return callfailure;
+		return callFailure;
 	}
 
-	public CallFailure removeCallfailure(CallFailure callfailure) {
-		getCallfailures().remove(callfailure);
-		callfailure.setEquipment(null);
+	public CallFailure removeCallFailure(CallFailure callFailure) {
+		getCallFailures().remove(callFailure);
+		callFailure.setEquipment(null);
 
-		return callfailure;
+		return callFailure;
 	}
 
 }
