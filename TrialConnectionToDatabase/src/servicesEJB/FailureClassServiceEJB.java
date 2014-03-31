@@ -15,19 +15,23 @@ import entities.FailureClass;
 import services.FailureClassService;
 
 @Stateless
-//@WebService(endpointInterface="services.FailureClassService")
-@Local(FailureClassService.class)
+@WebService(endpointInterface="services.FailureClassService")
+@Remote(FailureClassService.class)
+//@Local(FailureClassService.class)
 public class FailureClassServiceEJB implements FailureClassService {
 	
-	private FailureClassDAO dao;
+	@Inject private FailureClassDAO dao;
 	
-	@Inject
-	public void setDao(@JPA FailureClassDAO dao) {
-		this.dao = dao;
-	}
+//	@Inject
+//	public void setDao(@JPA FailureClassDAO dao) {
+//		System.out.println("injecting dao");
+//		this.dao = dao;
+//	}
 	
 	public List<FailureClass> getFailureClasses() {
 		System.out.println("Got into FailureClassServiceEJB getFailureClasses()");
+		
+		System.out.println("dao class: " + dao.getClass());
 		
 		List<FailureClass> failureClasses = dao.getAllFailureClasses();
 		
@@ -47,3 +51,23 @@ public class FailureClassServiceEJB implements FailureClassService {
 			dao.addFailureClass(failureClass);
 	}
 }
+
+/*
+@WebService(endpointInterface="com.conygre.training.services.CompactDiscService") 
+@Remote(CompactDiscService.class) 
+@Stateless
+public class CompactDiscServiceEJB implements CompactDiscService {
+	
+	@Inject	private CompactDiscDAO dao;
+	
+	public void addToCatalog(CompactDisc compactDisc){
+		if (!dao.getAllDiscs().contains(compactDisc))
+			dao.addCompactDisc(compactDisc);
+		return;
+	}
+	
+	public Collection<CompactDisc> getCatalog(){
+		return dao.getAllDiscs();
+	}
+	
+}*/
